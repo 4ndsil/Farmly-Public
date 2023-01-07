@@ -41,7 +41,7 @@
 			menuBtn.classList.remove('open');
 			menuOpen = false;
 		} else {
-			$(".fixed-top").removeClass("top-nav-collapse");		
+			$(".fixed-top").removeClass("top-nav-collapse");
 		}
 	});
 
@@ -76,27 +76,34 @@
 	});
 
 	/* Card Slider - Swiper */
-	var cardSlider = new Swiper('.card-slider', {
 
-		loop: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
-		slidesPerView: 3,
-		spaceBetween: 20,
-		breakpoints: {
-			// when window is <= 992px
-			992: {
-				slidesPerView: 2
-			},
-			// when window is <= 768px
-			768: {
-				slidesPerView: 1
-			}
-		}
-	});
-
+	$(window).on('load', () => {
+		setTimeout(() => {  
+			new Swiper('.card-slider', {
+				autoplay: {
+					delay: 4000,
+					disableOnInteraction: false
+				},
+				loop: true,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev'
+				},
+				slidesPerView: 3,
+				spaceBetween: 20,
+				breakpoints: {
+					// when window is <= 992px
+					992: {
+						slidesPerView: 2
+					},
+					// when window is <= 768px
+					768: {
+						slidesPerView: 1
+					}
+				}
+			})
+		 }, 5000)		
+	})
 
 	/* Lightbox - Magnific Popup */
 	$('.popup-with-move-anim').magnificPopup({

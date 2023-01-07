@@ -2,7 +2,7 @@ async function scrape() {
 
     const scrapedObjs = await fetch(`/scrape`).then(r => r.json())
     
-    const wrapper = document.getElementById("swiper-wrapper")
+    const wrapper = document.getElementById("wrapper")    
 
     let i = 0
 
@@ -19,8 +19,7 @@ async function scrape() {
         let date = document.createElement("p")
         let url = document.createElement("p")
         
-        divSlider.classList.add("swiper-slide")
-        wrapper.appendChild(divSlider)
+        divSlider.classList.add("swiper-slide")  
 
         link.classList.add("card-link-container")
         link.setAttribute("target", "_blank")
@@ -28,9 +27,9 @@ async function scrape() {
         divSlider.appendChild(link)
 
         divCard.classList.add("card")
-        link.appendChild(divCard)        
+        link.appendChild(divCard)
 
-        img.classList.add("img-fluid")        
+        img.classList.add("card-image")  
         img.setAttribute("src", obj['image'])
         divCard.appendChild(img)
 
@@ -54,6 +53,8 @@ async function scrape() {
         date.classList.add("card-date")
         date.innerText = `${obj["date"].split("T")[0]}`
         divBody.appendChild(date)
+
+        wrapper.appendChild(divSlider)
 
         i++
     }
