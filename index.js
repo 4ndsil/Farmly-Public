@@ -2,7 +2,6 @@ require('dotenv').config()
 const { engine } = require('express-handlebars')
 const express = require('express')
 const app = express()
-
 const PORT = 3000;
 
 //json
@@ -12,14 +11,15 @@ app.use(express.urlencoded({ extended: true }))
 // serve static files
 app.use("/static", express.static(__dirname + "/client/public"))
 
-// public routes
-app.use("/", require("./server/routes/views"))
+// routes
+app.use(require('./server/routes/views'))
 
-//sendgrid route
-app.use("/send", require("./server/routes/sendgrid"))
+//sendgrid
+app.use("/send", require("./server/services/sendgrid"))
 
-//scrape route
-app.use("/scrape", require("./server/routes/scraper"))
+// scraper
+//sendgrid
+app.use("/send", require("./server/services/scraper"))
 
 // handlebars engine, set partials directory
 app.engine(

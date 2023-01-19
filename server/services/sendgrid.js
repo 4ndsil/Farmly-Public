@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
     to: 'info@farmly.nu',
     from: 'info@farmly.nu',
     subject: `Inkommet mail från ${req.body.cname}`,
-    text: `Meddelande från ${req.body.cemail}\n\n${req.body.cmessage}`,
+    text: `Meddelande från ${req.body.cemail}\n\n${req.body.cmessage}\n\n ${req.body.cphone}`,
   }
   try {
     sgMail.send(msg);
