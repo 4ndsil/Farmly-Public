@@ -18,8 +18,7 @@ app.use(require('./server/routes/views'))
 app.use("/send", require("./server/services/sendgrid"))
 
 // scraper
-//sendgrid
-app.use("/send", require("./server/services/scraper"))
+app.use("/scrape", require("./server/services/scraper"))
 
 // handlebars engine, set partials directory
 app.engine(

@@ -33,15 +33,18 @@
 			menuOpen = false;
 		}
 	});
-
+	
+	let nav = document.getElementById("nav-container")
 	// jQuery to collapse the navbar on scroll
 	$(window).on('scroll load', function () {
 		if ($(".navbar").offset().top > 20) {
-			$(".fixed-top").addClass("top-nav-collapse");
-			menuBtn.classList.remove('open');
+			$(".fixed-top").addClass("top-nav-collapse")
+			menuBtn.classList.remove('open')			
+    		nav.style.backgroundColor = "#1f7979"
 			menuOpen = false;
 		} else {
-			$(".fixed-top").removeClass("top-nav-collapse");
+			$(".fixed-top").removeClass("top-nav-collapse")
+			nav.style.backgroundColor = "#f8cde7"
 		}
 	});
 

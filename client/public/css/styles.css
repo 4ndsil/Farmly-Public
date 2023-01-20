@@ -115,6 +115,7 @@ a.green {
 a.white,
 .white {
 	color: #dfe5ec;
+	text-decoration: none;
 }
 
 .testimonial-text {
