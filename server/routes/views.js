@@ -8,11 +8,11 @@ router.get('/policy', async (req, res) => {
     res.render('policy')
 });
 
-router.get('/terms-producer', async (req, res) => {    
+router.get('/villkor-producent', async (req, res) => {    
     res.render('terms-producer')
 });
 
-router.get('/terms-buyer', async (req, res) => {    
+router.get('/villkor-kopare', async (req, res) => {    
     res.render('terms-buyer')
 });
 
