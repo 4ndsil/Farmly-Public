@@ -20,6 +20,9 @@ app.use("/send", require("./server/services/sendgrid"))
 // scraper
 app.use("/scrape", require("./server/services/scraper"))
 
+// farmlycore
+app.use(require("./server/farmlycore/users"))
+
 // handlebars engine, set partials directory
 app.engine(
     "handlebars",

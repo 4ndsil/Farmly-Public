@@ -16,4 +16,8 @@ router.get('/villkor-kopare', async (req, res) => {
     res.render('terms-buyer')
 });
 
+router.get('/logga-in', async (req, res) => {    
+    res.render('login')
+});
+
 module.exports = router
