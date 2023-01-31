@@ -7,8 +7,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 router.post("/", async (req, res) => {
   const msg = {
-    to: 'info@farmly.nu',
-    from: 'info@farmly.nu',
+    to: 'info@farmly.se',
+    from: 'info@farmly.se',
     subject: `Inkommet mail från ${req.body.cname}`,
     text: `Meddelande från ${req.body.cemail}\n\n${req.body.cmessage}\n\n ${req.body.cphone}`,
   }
