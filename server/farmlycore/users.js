@@ -1,33 +1,46 @@
-const router = require('express').Router()
 const axios = require("axios");
 const BASE_URL = process.env.CORE_BASE_URL
 
-router.post("/post-login", (req, res) => {
-    let config =  {
-        headers: {
-        'Content-Type': 'application/json',
-      }
+const findUsers = async ({email, customerId}) => {
+    let data =  {      
+        'email': email,
+        'customerId': customerId      
     }
     
-    axios.post(`${BASE_URL}/user-access/user`, {            
-            email: req.body.email,
-            password: req.body.password
-        }, config)
+    axios.post(`${BASE_URL}/user-access/user/find/`, data)
         .then((response) => {
-            const data = response.data.map((plant) => {
-                return Object.keys(plant)
-                    .filter((key) => fields.includes(key))
-                    .reduce((obj, key) => {
-                        obj[key] = plant[key];
-                        return obj;
-                    }, {})
-            })
-            res.json(data);
-        })
-        .catch((error) => {
-            console.error(error.message);
-            res.sendStatus();
-        })
-})
+          console.log(response)
+            return response.data.map((user) => {
 
-module.exports = router;
+            })
+          })
+        .catch((error) => {
+            console.error(error.message)
+            return null
+        })      
+}
+
+const userAuthentication = async({email, password}) => {
+  let data =  {      
+    'email': email,
+    'password': password      
+  }
+
+  axios.post(`${BASE_URL}/user-access/user/`, data)
+  .then((response) => {
+    console.log(response)
+    console.log('success')
+      return response.data.map((user) => {
+
+      })
+    })
+  .catch((error) => {
+      console.error(error.message)
+      return null
+  })      
+}
+
+module.exports = {
+    findUsers,
+    userAuthentication
+}

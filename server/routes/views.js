@@ -20,4 +20,8 @@ router.get('/logga-in', async (req, res) => {
     res.render('login')
 });
 
+router.get('/:id', async (req, res) => {    
+    res.render('welcome')
+});
+
 module.exports = router

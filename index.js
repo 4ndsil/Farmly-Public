@@ -14,14 +14,14 @@ app.use("/static", express.static(__dirname + "/client/public"))
 // routes
 app.use(require('./server/routes/views'))
 
+//login
+app.use("/login", require("./server/routes/login"))
+
 //sendgrid
 app.use("/send", require("./server/services/sendgrid"))
 
 // scraper
 app.use("/scrape", require("./server/services/scraper"))
-
-// farmlycore
-app.use(require("./server/farmlycore/users"))
 
 // handlebars engine, set partials directory
 app.engine(
