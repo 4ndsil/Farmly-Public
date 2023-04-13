@@ -5,7 +5,7 @@ async function scrape() {
     const wrapper = document.getElementById("wrapper")    
 
     let i = 0
-
+    scrapedObjs[2]
     while (i != scrapedObjs.length){
         const obj = scrapedObjs[i]
         
@@ -29,10 +29,17 @@ async function scrape() {
         divCard.classList.add("card")
         link.appendChild(divCard)
 
-        img.classList.add("card-image")  
-        img.setAttribute("src", obj['image'])
-        divCard.appendChild(img)
-
+        if (i == 2){
+            img.classList.add("card-image")  
+            img.setAttribute("src", "/static/images/farmly.png")
+            divCard.appendChild(img)
+        }
+        else{
+            img.classList.add("card-image")  
+            img.setAttribute("src", obj['image'])
+            divCard.appendChild(img)
+        }
+        
         divBody.classList.add("card-body")
         divCard.appendChild(divBody)
         

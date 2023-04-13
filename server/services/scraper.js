@@ -11,10 +11,11 @@ const scraper = metascraper([
 
 router.get("/", async (req, res) => {
   const urls = [
-    "https://www.butikstrender.se/ny-forsaljningskanal-for-svenska-ravaror/",
+    "https://www.agfo.se/medlemsintervjuer/farmly",
     "https://www.oru.se/nyheter/nyhetsarkiv/nyhetsarkiv-2021/nu-testkors-studentinnovationen-pa-marknaden/",
-    "https://www.ja.se/artikel/2229548/det-r-vldigt-stort-fr-oss-att-kra-den-hr-piloten.html",
-    "https://www.svt.se/nyheter/lokalt/orebro/app-ska-ge-mer-lokal-mat-pa-restaurangborden"
+    "https://www.ja.se/artikel/2232421/slj-till-restaurang-via-app.html",
+    "https://www.svt.se/nyheter/lokalt/orebro/app-ska-ge-mer-lokal-mat-pa-restaurangborden",
+    "https://www.ja.se/artikel/2229548/det-r-vldigt-stort-fr-oss-att-kra-den-hr-piloten.html"
   ]
 
   const scrapedObjs = []
@@ -30,14 +31,16 @@ router.get("/", async (req, res) => {
       url
     }).then((promise) => {
       Promise.resolve(promise).then((data) => {
-        const scrapedObj = {
-          "title": data["title"],
-          "image": data["image"],
-          "url": data['url'],
-          "desc": data["description"],
-          "date": data["date"],
-        }
 
+        let scrapedObj = {}
+          scrapedObj = {
+            "title": data["title"],
+            "image": data["image"],
+            "url": data['url'],
+            "desc": data["description"],
+            "date": data["date"],
+          }
+    
         scrapedObjs.push(scrapedObj)
       })      
     })
